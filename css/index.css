@@ -1,0 +1,116 @@
+/* Login/Signup sekcija */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(to bottom right, #2c3e50, #4ca1af); /* Dodan gradient */
+    color: #fff; /* Barva besedila */
+}
+
+.auth-box {
+    background: rgba(255, 255, 255, 0.1); /* Prozorno ozadje */
+    padding: 30px;
+    border-radius: 10px; /* Zaobljeni robovi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Bolj izrazita senca */
+    width: 100%;
+    max-width: 400px;
+    text-align: center; /* Poravnava vsebine na sredino */
+}
+
+.auth-box h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff; /* Bela barva naslova */
+    font-size: 24px;
+}
+
+.auth-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-box input {
+    padding: 12px;
+    border: none; /* Odstranjen rob */
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2); /* Prozorno ozadje */
+    color: #fff; /* Bela barva besedila */
+    font-size: 16px;
+}
+
+.auth-box input::placeholder {
+    color: #ddd; /* Svetlejša barva za placeholder */
+}
+
+.auth-box button {
+    background-color: #4ca1af; /* Svetlejša modra */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease; /* Animacija ob hoverju */ 
+}
+
+.auth-box button:hover {
+    background-color: #3b8d99; /* Temnejša modra ob hoverju */
+}
+
+.switch-form {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff; /* Bela barva besedila */
+}
+
+.switch-form a {
+    color: #5cc5d6; /* Svetlejša modra */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
+/* Remember Me */
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.remember-me input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.remember-me label {
+    color: #fff; /* Bela barva besedila */
+    font-size: 14px;
+}
+
+/* Message styling for login errors/success */
+.message {
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 14px;
+}
+
+.message.error {
+    background: rgba(255, 0, 0, 0.2); /* Rdeče ozadje za napake */
+    color: #ff4d4d;
+}
+
+.message.success {
+    background: rgba(0, 255, 0, 0.2); /* Zeleno ozadje za uspeh */
+    color: #4dff4d;
+}

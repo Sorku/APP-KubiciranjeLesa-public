@@ -1,0 +1,13 @@
+# Okoljske spremenljivke in občutljivi podatki
+.env
+
+# Log datoteke
+*.log
+
+# Sistemske datoteke
+.DS_Store
+Thumbs.db
+
+# IDE in urejevalniki
+.idea/
+.vscode/
