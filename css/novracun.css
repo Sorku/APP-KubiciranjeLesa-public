@@ -1,9 +1,69 @@
+:root {
+    /* Existing base colors */
+    --base-color: #ffffff;
+    --base-variant: rgba(255, 255, 255, 0.1);
+    --text-color: #fff;
+    --secondary-text: #ddd;
+    --primary-color: #2c3e50;
+    --accent-color: #4ca1af;
+    --accent-hover: #3b8d99;
+    --error-color: rgba(255, 0, 0, 0.2);
+    --success-color: rgba(0, 255, 0, 0.2);
+
+    /* Navigation colors */
+    --nav-background: rgba(44, 62, 80, 0.9);
+    --nav-shadow: rgba(0, 0, 0, 0.2);
+
+    /* Table colors */
+    --table-border: rgba(255, 255, 255, 0.2);
+    --table-hover: rgba(255, 255, 255, 0.05);
+    --table-header: rgba(255, 255, 255, 0.2);
+    --table-open: #28a745;
+    --table-delete: #dc3545;
+
+    /* Message colors */
+    --error-text: #ff4d4d;
+    --success-text: #4dff4d;
+
+    /* Footer colors */
+    --footer-background: rgba(44, 62, 80, 0.9);
+}
+
+.darkmode {
+    --base-color: #121212;
+    --base-variant: rgba(18, 18, 18, 0.9);
+    --text-color: #e0e0e0;
+    --secondary-text: #888888;
+    --primary-color: #1a1a2e;
+    --accent-color: #0071ff;
+    --accent-hover: #005acc;
+    --error-color: rgba(220, 53, 69, 0.2);
+    --success-color: rgba(40, 167, 69, 0.2);
+    /* Navigation colors */
+    --nav-background: rgba(18, 18, 18, 0.95);
+    --nav-shadow: rgba(0, 0, 0, 0.4);
+
+    /* Table colors */
+    --table-border: rgba(255, 255, 255, 0.1);
+    --table-hover: rgba(255, 255, 255, 0.03);
+    --table-header: rgba(0, 0, 0, 0.3);
+    --table-open: #1a472a;
+    --table-delete: #8b0000;
+
+    /* Message colors */
+    --error-text: #ff6b6b;
+    --success-text: #6bff6b;
+
+    /* Footer colors */
+    --footer-background: rgba(18, 18, 18, 0.95);
+}
+
 /* Gradient ozadja */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom right, #2c3e50, #4ca1af); /* Gradient */
-    color: #fff; /* Barva besedila */
+    background: linear-gradient(to bottom right, var(--primary-color), var(--accent-color)); /* Gradient */
+    color: var(--text-color); /* Barva besedila */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,18 +78,18 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(44, 62, 80, 0.9); /* Temno ozadje z rahlo prosojnostjo */
-    color: #fff;
+    background: var(--nav-background); /* Temno ozadje z rahlo prosojnostjo */
+    color: var(--text-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px var(--nav-shadow);
     z-index: 1000;
 }
 
 nav a {
-    color: #4ca1af; /* Svetlejša modra */
+    color: var(--accent-color); /* Svetlejša modra */
     text-decoration: none;
     font-size: 16px;
     margin-right: 15px;
@@ -37,7 +97,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #3b8d99; /* Temnejša modra ob hoverju */
+    color: var(--accent-hover); /* Temnejša modra ob hoverju */
 }
 
 nav form {
@@ -45,8 +105,8 @@ nav form {
 }
 
 nav button {
-    background: #4ca1af; /* Svetlejša modra */
-    color: #fff;
+    background: var(--accent-color); /* Svetlejša modra */
+    color: var(--text-color);
     border: none;
     padding: 8px 15px;
     border-radius: 5px;
@@ -57,24 +117,24 @@ nav button {
 }
 
 nav button:hover {
-    background: #3b8d99; /* Temnejša modra ob hoverju */
+    background: var(--accent-hover); /* Temnejša modra ob hoverju */
 }
 
 /* Kartica */
 .card {
-    background-color: rgba(255, 255, 255, 0.1); /* Prosojno ozadje */
+    background-color: var(--base-variant); /* Prosojno ozadje */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 110px;
     margin-top: 25px;
     animation: fadeIn 0.5s ease-in-out;
-      justify-content: center; 
+    justify-content: center; 
 }
 
 .card-title {
     margin-top: 0;
-    color: #fff; /* Barva naslova */
+    color: var(--text-color); /* Barva naslova */
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     padding-bottom: 10px;
     text-align: center;
@@ -83,7 +143,7 @@ nav button:hover {
 
 /* Measurement card */
 .measurement-card {
-    background-color: rgba(255, 255, 255, 0.1); /* Prosojno ozadje */
+    background-color: var(--base-variant); /* Prosojno ozadje */
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -92,7 +152,7 @@ nav button:hover {
 
 .measurement-card h3 {
     margin-top: 0;
-    color: #fff;
+    color: var(--text-color);
 }
 
 /* Obrazec */
@@ -110,25 +170,25 @@ nav button:hover {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #fff; /* Barva besedila */
+    color: var(--text-color); /* Barva besedila */
 }
 
 .form-group input {
     padding: 12px;
     border: none; /* Odstranjen rob */
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.2); /* Svetlo ozadje */
-    color: #fff; /* Barva besedila */
+    background: var(--base-variant); /* Svetlo ozadje */
+    color: var(--text-color); /* Barva besedila */
     font-size: 16px;
 }
 
 .form-group input::placeholder {
-    color: #ddd; /* Svetlejša barva za placeholder */
+    color: var(--secondary-text); /* Svetlejša barva za placeholder */
 }
 
 .form-control-help {
     display: block;
-    color: #ddd; /* Svetlejša barva za pomoč */
+    color: var(--secondary-text); /* Svetlejša barva za pomoč */
     font-size: 0.875rem;
     margin-top: 5px;
 }
@@ -138,8 +198,8 @@ button[type="submit"] {
     padding: 12px;
     border: none;
     border-radius: 5px;
-    background: #4ca1af; /* Svetlejša modra */
-    color: white;
+    background: var(--accent-color); /* Svetlejša modra */
+    color: var(--text-color);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -147,14 +207,14 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background: #3b8d99; /* Temnejša modra ob hoverju */
+    background: var(--accent-hover); /* Temnejša modra ob hoverju */
 }
 
 /* Tabela */
 table {
     width: 95vw; /* Razširi tabelo čez celotno širino zaslona */
     height: 40vh;
-    background-color: rgba(255, 255, 255, 0.1); /* Prosojno ozadje */
+    background-color: var(--base-variant); /* Prosojno ozadje */
     border-collapse: collapse;
     margin: 0; /* Odstrani privzeti zunanji rob */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -165,18 +225,18 @@ table {
 th, td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff; /* Barva besedila */
+    border-bottom: 1px solid var(--table-border);
+    color: var(--text-color); /* Barva besedila */
 }
 
 th {
-    background-color: rgba(255, 255, 255, 0.2); /* Svetlejše ozadje */
+    background-color: var(--table-header); /* Svetlejše ozadje */
     font-weight: bold;
     cursor: pointer;
 }
 
 tr:hover {
-    background-color: rgba(255, 255, 255, 0.05); /* Svetlejše ozadje ob hoverju */
+    background-color: var(--table-hover); /* Svetlejše ozadje ob hoverju */
 }
 
 table a {
@@ -184,15 +244,15 @@ table a {
     padding: 5px 10px;
     border-radius: 3px;
     margin-right: 5px;
-    color: white;
+    color: var(--text-color);
 }
 
 table a.open {
-    background-color: #28a745; /* Zelena */
+    background-color: var(--table-open); /* Zelena */
 }
 
 table a.delete {
-    background-color: #dc3545; /* Rdeča */
+    background-color: var(--table-delete); /* Rdeča */
 }
 
 table a:hover {
@@ -202,12 +262,12 @@ table a:hover {
 /* Sort indicators */
 th.sort-asc::after {
     content: " ↑";
-    color: #fff;
+    color: var(--text-color);
 }
 
 th.sort-desc::after {
     content: " ↓";
-    color: #fff;
+    color: var(--text-color);
 }
 
 /* Sporočila */
@@ -221,13 +281,13 @@ th.sort-desc::after {
 }
 
 .message.error {
-    background: rgba(255, 0, 0, 0.2); /* Rdeče ozadje za napake */
-    color: #ff4d4d;
+    background: var(--error-color); /* Rdeče ozadje za napake */
+    color: var(--error-text);
 }
 
 .message.success {
-    background: rgba(0, 255, 0, 0.2); /* Zeleno ozadje za uspeh */
-    color: #4dff4d;
+    background: var(--success-color); /* Zeleno ozadje za uspeh */
+    color: var(--success-text);
 }
 
 /* Animacija */
@@ -247,10 +307,9 @@ th.sort-desc::after {
 }
 /* Poskrbi, da je footer na dnu strani */
 
-
 .footer {
-    background: rgba(44, 62, 80, 0.9); /* Temno ozadje */
-    color: #fff;
+    background: var(--footer-background); /* Temno ozadje */
+    color: var(--text-color);
     text-align: center;
     padding: 20px 0;
     margin-top: 20px;
@@ -274,4 +333,14 @@ th.sort-desc::after {
 
 .footer .social-icons a img:hover {
     transform: scale(1.2); /* Povečanje ob hoverju */
+}
+
+#theme-switch svg:last-child {
+    display: none;
+}
+.darkmode #theme-switch svg:first-child {
+    display: none;
+}
+.darkmode #theme-switch svg:last-child {
+    display: block;
 }

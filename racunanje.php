@@ -5,6 +5,10 @@ if (!isset($_SESSION['userid'])) {
     header("Location: index.php");
     exit();
 }
+
+// Load application configuration
+require_once 'config.php';
+
 // Preveri, če je bil izbran račun za odpiranje
 if (isset($_GET['odpri'])) {
     $_SESSION['racun_id'] = $_GET['odpri'];
@@ -29,7 +33,20 @@ $izracuni = $izracunManager->pridobiIzracune($_SESSION['racun_id']);
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/racunanje.css">
-    <title>Računanje</title>
+    <title><?php echo $app_title; ?> - Izračun</title>
+    <meta name="description" content="<?php echo $app_description; ?>">
+    <link rel="icon" type="image/x-icon" href="<?php echo $favicon_ico; ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo $favicon_ico; ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $favicon_32; ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $favicon_16; ?>">
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkmode = localStorage.getItem('darkmode');
+            if (darkmode === 'active') {
+                document.body.classList.add('darkmode');
+            }
+        });
+    </script>
 </head>
 <body>
     <!-- Navigacija -->
@@ -41,7 +58,7 @@ $izracuni = $izracunManager->pridobiIzracune($_SESSION['racun_id']);
     </nav>
 
     <div class="card fade-in">
-        <h2 class="card-title">Kubiciranje lesa</h2>
+        <h2 class="card-title"><?php echo $app_title; ?></h2>
         
         <!-- Prikaz sporočil o uspehih in napakah -->
         <?php if (isset($_GET['success'])): ?>
@@ -354,7 +371,7 @@ $izracuni = $izracunManager->pridobiIzracune($_SESSION['racun_id']);
                 // Preverjamo, da premer brez lubja ni negativen
                 premerBrezLubja = Math.max(0, premerBrezLubja);
                 
-                // Približna ocena volumna brez lubja
+                // Preverjamo, da premer brez lubja ni negativen
                 const volumenBrezLubja = Math.PI * Math.pow(premerBrezLubja/200, 2) * dolzina * kolicina;
                 
                 previewBrezLubjaSpan.textContent = volumenBrezLubja.toFixed(3) + " (približna ocena)";
@@ -390,13 +407,13 @@ $izracuni = $izracunManager->pridobiIzracune($_SESSION['racun_id']);
 
     <footer class="footer">
         <div class="social-icons">
-            <a href="https://www.facebook.com" target="_blank">
+            <a href="<?php echo $facebook_url; ?>" target="_blank">
                 <img src="slike/facebook-icon.png" alt="Facebook" />
             </a>
-            <a href="https://www.twitter.com" target="_blank">
+            <a href="<?php echo $twitter_url; ?>" target="_blank">
                 <img src="slike/twitter-icon.png" alt="Twitter" />
             </a>
-            <a href="https://www.instagram.com" target="_blank">
+            <a href="<?php echo $instagram_url; ?>" target="_blank">
                 <img src="slike/instagram-icon.png" alt="Instagram" />
             </a>
         </div>

@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+// Load application configuration
+require_once 'config.php';
+
 // Vključimo potrebne datoteke
 require_once 'strani/dbh.stran.php';
 require_once 'classes/AuthManager.php';
@@ -51,7 +54,13 @@ if(isset($_GET['success']) && $_GET['success'] === 'registered') {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>Kubiciranje lesa</title>
+    <title><?php echo $app_title; ?></title>
+    <meta name="description" content="<?php echo $app_description; ?>">
+    <link rel="icon" type="image/x-icon" href="<?php echo $favicon_ico; ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo $favicon_ico; ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $favicon_32; ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $favicon_16; ?>">
+    <link rel="manifest" href="site.webmanifest">
 </head>
 <body>
     <section class="auth-container">
